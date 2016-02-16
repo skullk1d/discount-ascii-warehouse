@@ -1,0 +1,18 @@
+<section class='ProdGrid' (window:scroll)="onScroll($event)">
+	<ul *ngIf="asciiData">
+		<li class='productBox' *ngFor='#ascii of asciiData;  #i = index' [ngClass]="{adRow: !(i % adInterval)}" [ngStyle]="{'width': prodWidth + 'px'}">
+			<div class='face' [ngStyle]="{'font-size': ascii.size + 'px'}">
+				{{ascii.face}}
+			</div>
+			<p>Size: {{ascii.size}}px</p>
+			<p>Data added: {{ascii.dateStr}}</p>
+			<p>{{ascii.price / 100 | currency:'USD':2}}</p>
+
+			<div class='adBox' *ngIf="!(i % adInterval)">
+				<img src="/ad/?r={{ads[i / adInterval]}}"/>
+			</div>
+		</li>
+		<li class="spinner" *ngIf="isLoading" [ngStyle]="{'width': prodWidth + 'px'}"></li>
+	</ul>
+	<div class='endOfCatalog' *ngIf="reachedEnd">~ end of catalogue ~</div>
+</section>

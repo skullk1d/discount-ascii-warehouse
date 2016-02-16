@@ -1,0 +1,9 @@
+<h1 class='title'>Discount Ascii Warehouse</h1>
+<div class='menu'>
+	<label for='sortMenu'>Sort by:</label>
+	<select (change)='sortSelectChanged($event)' name='sortMenu' [value]='selectedSort'>
+		<option value='size'>Size</option>
+		<option value='price'>Price</option>
+		<option value='id'>ID</option>
+  	</select>
+</div>
