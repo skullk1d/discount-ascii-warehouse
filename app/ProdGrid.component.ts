@@ -1,4 +1,4 @@
-import {Component, ElementRef, Input, OnChanges} from 'angular2/core';
+import {Component, Input, OnChanges} from 'angular2/core';
 import {ASCIIService} from './asciiService.service';
 import {Utils} from './utils.component';
 
@@ -19,27 +19,22 @@ export class ProdGrid implements OnChanges {
 	asciiData: IASCIIData[];
 	prodWidth: number;
 	isLoading: boolean;
-	element: HTMLElement;
 	currentPage: number;
 	adInterval: number;
 	ads: number[];
 	lastAdIdx: number;
 	reachedEnd: boolean;
-	lastSort: string;
 	idleBench: number;
 	idleTimeout: any;
 
 	@Input() selectedSort: string;
 
 	constructor(
-		private _asciiService: ASCIIService,
-		private _elementRef: ElementRef
+		private _asciiService: ASCIIService
 	) {
-		this.element = _elementRef.nativeElement;
 		this.prodWidth = 210;
 		this.adInterval = 20;
 		this.ads = [];
-		this.lastSort = this.selectedSort;
 		this.idleBench = 5000; // 5 sec
 
 		this.init();

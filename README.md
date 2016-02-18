@@ -3,7 +3,7 @@ Discount Ascii Warehouse
 
 # README #
 
-Need to express yourself but don't have enough emoji to satisfy? Then welcome to the Discount Ascii Warehouse! This was an exam project whose only requirement was to implement the features in Angular, provided with a node server and some existing modules. As I am/was learning TypeScript and Angular 2 at the time, I decided to implement it with those. My organization and best practices may not be fantastic but I enjoyed the learning process of implementing a small "full-scale" project with Angular 2.
+Need to express yourself but don't have enough emoji to satisfy? Then welcome to the Discount Ascii Warehouse! This was an exam project whose only requirement was to implement the features in Angular, provided with a node server and some existing modules (with less emphasis on styling). As I am/was learning TypeScript and Angular 2 at the time, I decided to implement it with those. My organization and best practices may not be fantastic but I enjoyed the learning process of implementing a small "full-scale" project with Angular 2.
 
 This project was built on top of the
 [Angular 2 Quickstart boilerplate](https://angular.io/docs/ts/latest/quickstart.html).
