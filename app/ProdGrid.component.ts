@@ -99,6 +99,7 @@ export class ProdGrid implements OnChanges {
 	}
 
 	onScroll(event) {
+		this.resetIdle();
 		if (this.reachedEnd) {
 			return;
 		}
@@ -125,8 +126,7 @@ export class ProdGrid implements OnChanges {
 
 	fetchMoreProducts() {
 		// new request came in, no longer idle, reset timeout
-		clearTimeout(this.idleTimeout);
-		this.idleTimeout = setTimeout(this.fetchMoreProducts.bind(this), this.idleBench);
+		this.resetIdle();
 
 		// per page based on offsetY of prod grid against page height
 		let prodsPerPage = Math.floor(window.innerWidth / this.prodWidth) * Math.round(window.innerHeight / this.prodWidth);
@@ -141,6 +141,11 @@ export class ProdGrid implements OnChanges {
 		this.asciiData = [];
 		this.currentPage = 0;
 		this.lastAdIdx = 0;
+	}
+
+	resetIdle() {
+		clearTimeout(this.idleTimeout);
+		this.idleTimeout = setTimeout(this.fetchMoreProducts.bind(this), this.idleBench);
 	}
 
 	onSorted() {
