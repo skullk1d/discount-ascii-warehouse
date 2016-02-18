@@ -81,6 +81,9 @@ export class ProdGrid implements OnChanges {
 			}
 		).done(() => {
 			self.isLoading = false;
+			// manually apply sort to all data once next page received
+			// note: paginated results reset sort per page, need to re-order entire set
+			this.postSort(this.selectedSort);
 			console.log('fetched products');
 		}).fail(() => {
 			self.isLoading = false;
@@ -144,6 +147,13 @@ export class ProdGrid implements OnChanges {
 		// watch for sort to change, then request new sorted data
 		this.resetData();
 		this.fetchMoreProducts();
+	}
+
+	postSort(sort: string) {
+		this.asciiData.sort((a: IASCIIData, b: IASCIIData) => {
+			// ASSUMPTION: always ascending, selectedSort is valid
+			return a[sort] - b[sort];
+		});
 	}
 
 
