@@ -141,6 +141,7 @@ export class ProdGrid implements OnChanges {
 		this.asciiData = [];
 		this.currentPage = 0;
 		this.lastAdIdx = 0;
+		this.reachedEnd = false;
 	}
 
 	resetIdle() {
